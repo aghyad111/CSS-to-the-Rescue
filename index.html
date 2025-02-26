@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Control Panel</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <main>
+    
+    
+    
+    
+    <section>
+      <article>
+        <div>
+          <!-- Second row of controls -->
+          <label for="control9">
+            <input type="checkbox" id="control9">
+            <span class="indicator"></span>
+            <span class="label">CABINA VECCHIA</span>
+          </label>
+          
+          <label for="control10">
+            <input type="checkbox" id="control10">
+            <span class="indicator"></span>
+            <span class="label">P. SALE</span>
+          </label>
+          
+          <label for="control11">
+            <input type="checkbox" id="control11">
+            <span class="indicator"></span>
+            <span class="label">P. COMP.</span>
+          </label>
+          
+          <label for="control12">
+            <input type="checkbox" id="control12">
+            <span class="indicator"></span>
+            <span class="label">CABINA NUOVA</span>
+          </label>
+          
+          <label for="control13">
+            <input type="checkbox" id="control13">
+            <span class="indicator"></span>
+            <span class="label">MAZZERATOI</span>
+          </label>
+          
+          <label for="control14">
+            <input type="checkbox" id="control14">
+            <span class="indicator"></span>
+            <span class="label">P. COMP.</span>
+          </label>
+          
+          <label for="control15">
+            <input type="checkbox" id="control15">
+            <span class="indicator"></span>
+            <span class="label">CAB. VECCHIA</span>
+          </label>
+        </div>
+        
+        <!-- Second row rotary switches -->
+        <div>
+          <div>
+            <input type="range" min="0" max="10" value="6">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="2">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="5">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="7">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="3">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="8">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="1">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="4">
+            <span class="rotary-switch"></span>
+          </div>
+        </div>
+      </article>
+    </section>
+    
+    
+    <section>
+      <article>
+        <div>
+          <!-- Third row of controls -->
+          <label for="control16">
+            <input type="checkbox" id="control16">
+            <span class="indicator"></span>
+            <span class="label blue-label">CABINA VECCHIA</span>
+          </label>
+          
+          <label for="control17">
+            <input type="checkbox" id="control17">
+            <span class="indicator"></span>
+            <span class="label blue-label">CAB. NUOVA</span>
+          </label>
+          
+          <label for="control18">
+            <input type="checkbox" id="control18">
+            <span class="indicator"></span>
+            <span class="label">CAB. NUOVA</span>
+          </label>
+          
+          <label for="control19">
+            <input type="checkbox" id="control19">
+            <span class="indicator"></span>
+            <span class="label">RIMISSAGGIO</span>
+          </label>
+          
+          <label for="control20">
+            <input type="checkbox" id="control20">
+            <span class="indicator"></span>
+            <span class="label">P. SALE</span>
+          </label>
+          
+          <label for="control21">
+            <input type="checkbox" id="control21">
+            <span class="indicator"></span>
+            <span class="label">P. COMP.</span>
+          </label>
+          
+          <label for="control22">
+            <input type="checkbox" id="control22">
+            <span class="indicator"></span>
+            <span class="label">MAZZERATOI</span>
+          </label>
+        </div>
+        
+        <!-- Third row rotary switches -->
+        <div>
+          <div>
+            <input type="range" min="0" max="10" value="9">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="2">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="4">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="7">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="3">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="6">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="5">
+            <span class="rotary-switch"></span>
+          </div>
+          
+          <div>
+            <input type="range" min="0" max="10" value="8">
+            <span class="rotary-switch"></span>
+          </div>
+        </div>
+      </article>
+    </section>
+    
+    <!-- Status display section -->
+    <section class="status-display">
+      <h2>System Status</h2>
+      <div class="meter-container">
+        <div class="meter">
+          <div class="meter-label">Power Load</div>
+          <div class="meter-bar">
+            <div class="meter-value"></div>
+          </div>
+          <div class="meter-reading">0 kW</div>
+        </div>
+        <div class="meter">
+          <div class="meter-label">Temp</div>
+          <div class="meter-bar">
+            <div class="meter-value"></div>
+          </div>
+          <div class="meter-reading">24°C</div>
+        </div>
+        <div class="meter">
+          <div class="meter-label">Efficiency</div>
+          <div class="meter-bar">
+            <div class="meter-value"></div>
+          </div>
+          <div class="meter-reading">92%</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Template for adding new module -->
+    <template id="new-module">
+      <div>
+        <label>
+          <input type="checkbox">
+          <span class="indicator"></span>
+          <span class="label">NEW MODULE</span>
+        </label>
+        
+        <div>
+          <input type="range" min="0" max="10" value="5">
+          <span class="rotary-switch"></span>
+        </div>
+      </div>
+    </template>
+  </main>
+</body>
+</html>
