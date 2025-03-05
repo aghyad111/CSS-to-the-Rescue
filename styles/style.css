@@ -6,7 +6,6 @@
 }
 
 body {
-  font-family: Georgia, serif;
   line-height: 1.6;
   color: #333;
   background-color: #f5f7fa;
@@ -45,6 +44,7 @@ footer {
   color: #666;
 }
 
+
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -76,7 +76,76 @@ legend {
   margin-bottom: 10px;
 }
 
+.font-option {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
 label {
   margin-right: 15px;
   cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+label:hover {
+  background-color: #f0f0f0;
+}
+
+/* Hide radio buttons but keep them accessible */
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Selected label styling */
+input[type="radio"]:checked + label {
+  background-color: #4a6fa5;
+  color: white;
+}
+
+/* The crucial part: Font family controls using :has() selector */
+main:has(#serif:checked) .preview {
+  font-family: Georgia, Times, serif;
+}
+
+main:has(#sans-serif:checked) .preview {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main:has(#monospace:checked) .preview {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+main:has(#cursive:checked) .preview {
+  font-family: 'Comic Sans MS', cursive;
+}
+
+main:has(#fantasy:checked) .preview {
+  font-family: Impact, fantasy;
+}
+
+/* Font size controls */
+main:has(#small:checked) .preview {
+  font-size: 0.85rem;
+}
+
+main:has(#medium:checked) .preview {
+  font-size: 1rem;
+}
+
+main:has(#large:checked) .preview {
+  font-size: 1.2rem;
+}
+
+input[id="serif"] + label,
+input[id="sans-serif"] + label,
+input[id="monospace"] + label,
+input[id="cursive"] + label,
+input[id="fantasy"] + label,
+input[id="small"] + label,
+input[id="medium"] + label,
+input[id="large"] + label {
+  display: inline-block;
 }
