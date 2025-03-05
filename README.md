@@ -1,13 +1,15 @@
 # CSS-to-the-Rescue
 # Typografie Bedieningspaneel
-
 ## Projectoverzicht
 Dit project heeft als doel een modulair typografie-bedieningspaneel te maken met alleen HTML en CSS. Het bedieningspaneel stelt gebruikers in staat verschillende typografische eigenschappen van tekst aan te passen, waarbij de kracht van CSS-selectors wordt gedemonstreerd zonder afhankelijk te zijn van JavaScript.
 
 ## Huidige voortgang
 - Basisprojectstructuur opgezet
 - Twee kolom lay-out geïmplementeerd met bedieningselementen en voorbeeldsectie
-- Begininstellingen voor lettertypecontrole toegevoegd
+- Volledige lettertypefamilie-opties geïmplementeerd (Serif, Sans-serif, Monospace, Cursive, Fantasy)
+- Lettergrootte-instellingen toegevoegd (Klein, Gemiddeld, Groot)
+- De :has() CSS-selector geïmplementeerd voor real-time typografische aanpassingen
+- Toegankelijke formulierelementen met visuele feedback voor geselecteerde opties
 - Grondslag voor responsief ontwerp gecreëerd
 
 ## Implementatieaanpak
@@ -15,18 +17,28 @@ Het project volgt een "selector-first" CSS-aanpak, waarbij het gebruik van klass
 - Semantische HTML-structuur
 - CSS Grid voor de lay-out
 - Media queries voor responsief ontwerp
-- Basisformulier elementen voor bedieningselementen
+- Geavanceerde CSS-selectors zoals :has() voor dynamische stijlen
+- Toegankelijke formulierelementen voor bedieningselementen
+- Visuele feedback voor gebruikersinteracties
 
 ## Gebruikte technologieën
 - HTML5
 - CSS3
+- Moderne CSS-selectors (:has, +, etc.)
 
 ## Volgende stappen
-- CSS-functionaliteit voor de keuze van het lettertype implementeren
-- Meer typografiebedieningselementen toevoegen (tekstgrootte, regelhoogte, enz.)
+- Meer typografiebedieningselementen toevoegen zoals:
+  - Tekststijl (normaal, cursief)
+  - Tekstgewicht (licht, normaal, vet)
+  - Tekstdecoratie (onderstrepen, doorhalen)
+  - Teksttransformatie (hoofdletters, kleine letters)
+  - Letterspatiëring en woordspatiëring
+  - Lijnhoogte
+  - Tekstuitlijning
+  - Tekstkleur en achtergrondkleur
 - De voorbeeldsectie verbeteren met meer voorbeeldtekst
-- Bedieningselementenstyling en visuele feedback verbeteren
-- Moderne CSS-functies toevoegen (nesting, layers, enz.)
+- Meer visuele feedback voor gebruikersinteracties toevoegen
+- CSS-layers implementeren voor betere organisatie
 
 ## Projectvereisten
 - Geen JavaScript (behalve voor het toegestane script voor het bereikinvoer indien nodig)
