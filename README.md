@@ -25,6 +25,29 @@ In de tweede week heb ik de basisimplementatie van het typografie-bedieningspane
 - Toegankelijke formulierelementen met visuele feedback voor geselecteerde opties
 - Grondslag voor responsief ontwerp gecreëerd
 
+### Week 3
+In de derde week heb ik mijn CSS gemoderniseerd en de preview-sectie verbeterd:
+- Implementatie van moderne CSS-architectuurtechnieken:
+  - CSS Nesting toegepast voor beter gestructureerde en onderhoudbare code
+  - @layer-systeem geïmplementeerd voor logische organisatie van CSS in verschillende lagen:
+    - reset: Voor CSS-resets
+    - base: Voor basistypografie en stijlen
+    - layout: Voor structuur en responsief ontwerp
+    - components: Voor UI-componenten zoals het bedieningspaneel
+    - utilities: Voor functionaliteit zoals de typografiecontroles
+- De preview-sectie uitgebreid met meer voorbeeldtekst en elementen:
+  - Rijkere tekstinhoud met verschillende niveaus van koppen
+  - Blockquotes met citaten en bronvermeldingen
+  - Lijsten en opsommingen
+  - Codevoorbeelden in pre-tags
+  - Verschillende tekstelementen zoals benadrukte tekst, vetgedrukte tekst en links
+  - Lange tekstparagraaf voor betere typografie-evaluatie
+- Verbeterde CSS-stijlen voor de preview-sectie:
+  - Specifieke opmaak voor verschillende elementen
+  - Verbeterde marges en ruimtes
+  - Stijlvolle blockquote-presentatie
+  - Responsieve codeblokken met goede leesbaarheid
+
 ## Huidige voortgang
 - Basisprojectstructuur opgezet
 - Twee kolom lay-out geïmplementeerd met bedieningselementen en voorbeeldsectie
@@ -33,6 +56,9 @@ In de tweede week heb ik de basisimplementatie van het typografie-bedieningspane
 - De :has() CSS-selector geïmplementeerd voor real-time typografische aanpassingen
 - Toegankelijke formulierelementen met visuele feedback voor geselecteerde opties
 - Grondslag voor responsief ontwerp gecreëerd
+- Moderne CSS-architectuur toegepast met CSS Nesting en @layer
+- Uitgebreide preview-sectie met diverse tekstelementen voor betere typografie-evaluatie
+- Verbeterde styling voor alle preview-elementen
 
 ## Implementatieaanpak
 Het project volgt een "selector-first" CSS-aanpak, waarbij het gebruik van klassen wordt vermeden en het gebruik van IDs geminimaliseerd. De huidige implementatie maakt gebruik van:
@@ -42,11 +68,14 @@ Het project volgt een "selector-first" CSS-aanpak, waarbij het gebruik van klass
 - Geavanceerde CSS-selectors zoals :has() voor dynamische stijlen
 - Toegankelijke formulierelementen voor bedieningselementen
 - Visuele feedback voor gebruikersinteracties
+- CSS Nesting voor beter gestructureerde code
+- @layer voor logische organisatie van CSS
 
 ## Gebruikte technologieën
 - HTML5
 - CSS3
 - Moderne CSS-selectors (:has, +, etc.)
+- Moderne CSS-architectuurtechnieken (CSS Nesting, @layer)
 
 ## Volgende stappen
 - Meer typografiebedieningselementen toevoegen zoals:
@@ -58,10 +87,8 @@ Het project volgt een "selector-first" CSS-aanpak, waarbij het gebruik van klass
   - Lijnhoogte
   - Tekstuitlijning
   - Tekstkleur en achtergrondkleur
-- De voorbeeldsectie verbeteren met meer voorbeeldtekst
 - Meer visuele feedback voor gebruikersinteracties toevoegen
-- CSS-layers implementeren voor betere organisatie
-- Implementeren van CSS nesting als een van de moderne CSS-architectuurtechnieken
+- Implementeren van andere moderne CSS-technieken zoals Container Queries
 
 ## Projectvereisten
 - Geen JavaScript (behalve voor het toegestane script voor het bereikinvoer indien nodig)
