@@ -1,151 +1,258 @@
-/* Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Implementing @layer for organizing CSS in logical layers */
+@layer reset, base, layout, components, utilities;
 
-body {
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f7fa;
-  padding: 20px;
-}
-
-/* Typography */
-h1, h2, h3 {
-  margin-bottom: 15px;
-}
-
-h1 {
-  font-size: 2rem;
-  color: #4a6fa5;
-}
-
-h2 {
-  font-size: 1.5rem;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-}
-
-p {
-  margin-bottom: 15px;
-}
-
-/* Layout */
-header, footer {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-footer {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-
-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
+/* Reset layer */
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
-/* Control Panel and Preview styling */
-section {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
+/* Base layer with typography */
+@layer base {
+  body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    padding: 20px;
+  }
+
+  /* Using CSS nesting for typography elements */
+  h1, h2, h3 {
+    margin-bottom: 15px;
+
+    &.headline {
+      text-transform: uppercase;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #4a6fa5;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+
+  p {
+    margin-bottom: 15px;
+  }
 }
 
-fieldset {
-  border: none;
-  margin-bottom: 20px;
+/* Layout layer */
+@layer layout {
+  header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
-legend {
-  font-weight: bold;
-  margin-bottom: 10px;
+/* Components layer */
+@layer components {
+  /* Section styling with nesting */
+  section {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+
+    & h2 {
+      color: #4a6fa5;
+    }
+  }
+
+  /* Form controls with nesting */
+  fieldset {
+    border: none;
+    margin-bottom: 20px;
+
+    & legend {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+
+  .font-option {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  /* Label styling with nesting */
+  label {
+    margin-right: 15px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+
+  /* Hide radio buttons but keep them accessible */
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+
+    /* Selected label styling using nesting */
+    &:checked + label {
+      background-color: #4a6fa5;
+      color: white;
+    }
+  }
+
+  /* Display options as inline-block using nesting */
+  input {
+    &[id="serif"] + label,
+    &[id="sans-serif"] + label,
+    &[id="monospace"] + label,
+    &[id="cursive"] + label,
+    &[id="fantasy"] + label,
+    &[id="small"] + label,
+    &[id="medium"] + label,
+    &[id="large"] + label {
+      display: inline-block;
+    }
+  }
+  
+  /* Preview section with improved styling */
+  .preview {
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    max-width: 100%;
+  }
+
+  .preview h3 {
+    margin-bottom: 0.8em;
+  }
+
+  .preview h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #4a6fa5;
+  }
+
+  .preview h5 {
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+  }
+
+  .preview .intro {
+    font-size: 1.05em;
+  }
+
+  .preview blockquote {
+    border-left: 3px solid #4a6fa5;
+    padding-left: 1em;
+    margin: 1.5em 0;
+    font-style: italic;
+    background-color: rgba(74, 111, 165, 0.05);
+    padding: 1em 1em 1em 2em;
+    border-radius: 4px;
+  }
+
+  .preview cite {
+    display: block;
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    text-align: right;
+  }
+
+  .preview a {
+    color: #4a6fa5;
+    text-decoration: underline;
+  }
+
+  .preview a:hover {
+    text-decoration: none;
+  }
+
+  .preview ul {
+    margin: 1em 0 1.5em;
+    padding-left: 2em;
+  }
+
+  .preview li {
+    margin-bottom: 0.5em;
+  }
+
+  .preview pre {
+    background-color: #f5f5f5;
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1em 0;
+    border: 1px solid #eee;
+  }
+
+  .preview code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+  }
 }
 
-.font-option {
-  display: inline-block;
-  margin-bottom: 8px;
-}
+/* Utilities layer - Typography controls using :has() selector */
+@layer utilities {
+  /* Font family controls */
+  main {
+    &:has(#serif:checked) .preview {
+      font-family: Georgia, Times, serif;
+    }
 
-label {
-  margin-right: 15px;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 3px;
-  transition: background-color 0.3s;
-}
+    &:has(#sans-serif:checked) .preview {
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-label:hover {
-  background-color: #f0f0f0;
-}
+    &:has(#monospace:checked) .preview {
+      font-family: 'Courier New', Courier, monospace;
+    }
 
-/* Hide radio buttons but keep them accessible */
-input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
+    &:has(#cursive:checked) .preview {
+      font-family: 'Comic Sans MS', cursive;
+    }
 
-/* Selected label styling */
-input[type="radio"]:checked + label {
-  background-color: #4a6fa5;
-  color: white;
-}
+    &:has(#fantasy:checked) .preview {
+      font-family: Impact, fantasy;
+    }
 
-/* The crucial part: Font family controls using :has() selector */
-main:has(#serif:checked) .preview {
-  font-family: Georgia, Times, serif;
-}
+    /* Font size controls */
+    &:has(#small:checked) .preview {
+      font-size: 0.85rem;
+    }
 
-main:has(#sans-serif:checked) .preview {
-  font-family: Arial, Helvetica, sans-serif;
-}
+    &:has(#medium:checked) .preview {
+      font-size: 1rem;
+    }
 
-main:has(#monospace:checked) .preview {
-  font-family: 'Courier New', Courier, monospace;
-}
-
-main:has(#cursive:checked) .preview {
-  font-family: 'Comic Sans MS', cursive;
-}
-
-main:has(#fantasy:checked) .preview {
-  font-family: Impact, fantasy;
-}
-
-/* Font size controls */
-main:has(#small:checked) .preview {
-  font-size: 0.85rem;
-}
-
-main:has(#medium:checked) .preview {
-  font-size: 1rem;
-}
-
-main:has(#large:checked) .preview {
-  font-size: 1.2rem;
-}
-
-input[id="serif"] + label,
-input[id="sans-serif"] + label,
-input[id="monospace"] + label,
-input[id="cursive"] + label,
-input[id="fantasy"] + label,
-input[id="small"] + label,
-input[id="medium"] + label,
-input[id="large"] + label {
-  display: inline-block;
+    &:has(#large:checked) .preview {
+      font-size: 1.2rem;
+    }
+  }
 }
