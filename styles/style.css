@@ -1,258 +1,457 @@
-/* Implementing @layer for organizing CSS in logical layers */
-@layer reset, base, layout, components, utilities;
+/* Using @layer for CSS organization */
+@layer base, typography, room, controls, lamp, animations;
 
-/* Reset layer */
-@layer reset {
-  * {
+/* Base layer with custom properties for fundamental styles */
+@layer base {
+  /* Custom properties for colors and values */
+  :root {
+    --color-white: rgba(255, 255, 255, 0.9);
+    --color-yellow: rgb(237, 230, 19); 
+    --color-blue: rgba(0, 191, 255, 0.9);
+    --color-wall: #f0e6d2;
+    --color-floor: #8b5a2b;
+    --color-text: #333;
+    --color-control-bg: rgba(51, 51, 51, 0.7);
+    --lamp-scale: 3;
+    --transition-speed: 0.2s;
+    --transition-long: 0.6s;
+    --glow-white: 0 0 10px 3px rgba(234, 227, 227, 0.916);
+    --glow-yellow: 0 0 10px 3px rgba(197, 222, 32, 0.7);
+    --glow-blue: 0 0 10px 3px rgba(29, 162, 206, 0.7);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    :root {
+      --lamp-scale: 2;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --lamp-scale: 1.5;
+    }
+  }
+
+  body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
   }
 }
 
-/* Base layer with typography */
-@layer base {
+/* Typography layer for fonts and text styling */
+@layer typography {
+  /* Apply font to all text elements */
   body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #f5f7fa;
-    padding: 20px;
+    font-family: 'Raleway', sans-serif;
   }
-
-  /* Using CSS nesting for typography elements */
-  h1, h2, h3 {
-    margin-bottom: 15px;
-
-    &.headline {
-      text-transform: uppercase;
-    }
+  
+  /* Simple title typography - positioned to the left */
+  header {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    text-align: left;
+    z-index: 10;
   }
-
+  
   h1 {
+    font-weight: 300;
     font-size: 2rem;
-    color: #4a6fa5;
+    color: #333;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
   }
-
-  h2 {
-    font-size: 1.5rem;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-  }
-
-  p {
-    margin-bottom: 15px;
-  }
-}
-
-/* Layout layer */
-@layer layout {
-  header, footer {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  footer {
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: #666;
-  }
-
-  main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  /* Responsive design */
-  @media (max-width: 768px) {
-    main {
-      grid-template-columns: 1fr;
-    }
-  }
-}
-
-/* Components layer */
-@layer components {
-  /* Section styling with nesting */
-  section {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-
-    & h2 {
-      color: #4a6fa5;
-    }
-  }
-
-  /* Form controls with nesting */
-  fieldset {
-    border: none;
-    margin-bottom: 20px;
-
-    & legend {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-  }
-
-  .font-option {
-    display: inline-block;
-    margin-bottom: 8px;
-  }
-
-  /* Label styling with nesting */
+  
+  /* Control labels typography */
   label {
-    margin-right: 15px;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 3px;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+  }
+}
 
-    &:hover {
-      background-color: #f0f0f0;
+/* Room environment styles */
+@layer room {
+  /* Room background with wall and floor - using CSS nesting */
+  body {
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+    }
+    
+    /* Wall */
+    &::before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background-color: var(--color-wall);
+      background-image: linear-gradient(90deg, 
+        rgba(0,0,0,0.03) 0%, 
+        rgba(0,0,0,0) 50%, 
+        rgba(0,0,0,0.03) 100%
+      );
+    }
+    
+    /* Floor */
+    &::after {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background-color: var(--color-floor);
+      background-image: repeating-linear-gradient(90deg, 
+        rgba(0,0,0,0.1) 0px, 
+        rgba(0,0,0,0.1) 2px, 
+        transparent 2px, 
+        transparent 20px
+      );
     }
   }
 
-  /* Hide radio buttons but keep them accessible */
+  /* Wall-floor dividing line */
+  hr {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0,0,0,0.2);
+    top: 70%;
+    z-index: -1;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer controls {
+  /* Hide radio buttons */
   input[type="radio"] {
     position: absolute;
     opacity: 0;
+  }
 
-    /* Selected label styling using nesting */
-    &:checked + label {
-      background-color: #4a6fa5;
+  /* Hide text but keep accessible for screen readers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Single class for controls as allowed by requirements - now positioned to the left */
+  .controls {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: var(--color-control-bg);
+    
+    /* Nested styles for labels */
+    & label {
+      cursor: pointer;
+      padding: 6px 12px;
+      border: 1px solid #555;
+      border-radius: 3px;
+      transition: all var(--transition-speed);
+      background-color: rgba(255, 255, 255, 0.8);
+      color: var(--color-text);
+      width: 80px;
+      text-align: center;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      }
+    }
+    
+    /* Off button styling */
+    & label[for="off-light"] {
+      background-color: #444;
       color: white;
+      border-color: #222;
     }
   }
 
-  /* Display options as inline-block using nesting */
-  input {
-    &[id="serif"] + label,
-    &[id="sans-serif"] + label,
-    &[id="monospace"] + label,
-    &[id="cursive"] + label,
-    &[id="fantasy"] + label,
-    &[id="small"] + label,
-    &[id="medium"] + label,
-    &[id="large"] + label {
-      display: inline-block;
+  /* Using sibling selectors with nesting */
+  #off-light:checked ~ .controls {
+    & label[for="off-light"] {
+      background-color: #333;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      border-color: #111;
+    }
+  }
+
+  #white-light:checked ~ .controls {
+    & label[for="white-light"] {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+      border-color: white;
+    }
+  }
+
+  #yellow-light:checked ~ .controls {
+    & label[for="yellow-light"] {
+      background-color: rgba(237, 230, 19, 0.3);
+      box-shadow: 0 0 5px rgba(200, 255, 0, 0.7);
+      border-color: #e5ff00;
+    }
+  }
+
+  #blue-light:checked ~ .controls {
+    & label[for="blue-light"] {
+      background-color: rgba(0, 191, 255, 0.3);
+      box-shadow: 0 0 5px rgba(0, 191, 255, 0.7);
+      border-color: #00bfff;
+    }
+  }
+}
+
+@layer lamp {
+  /* Lamp styling with child selectors and nesting */
+  figure {
+    transform: scale(var(--lamp-scale));
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    
+    /* Default light styles for the bulb and beams */
+    & > div:nth-child(3),
+    & > div:nth-child(5) > div {
+      background: linear-gradient(to bottom, var(--color-white) 0%, transparent 100%);
+      box-shadow: var(--glow-white);
+      transition: background var(--transition-speed), box-shadow var(--transition-speed), opacity var(--transition-speed);
+    }
+    
+    /* Lamp cable */
+    & > div:nth-child(1) {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 155px;
+      background-color: black;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    /* Lamp connector */
+    & > div:nth-child(2) {
+      position: fixed;
+      top: 155px;
+      left: 50%;
+      width: 20px;
+      height: 10px;
+      background-color: black;
+      border-radius: 10px 10px 0 0;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+    
+    /* Light bulb */
+    & > div:nth-child(3) {
+      position: fixed;
+      top: 213px;
+      left: 50%;
+      width: 20px;
+      height: 16px;
+      background-color: white;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        width: 6px;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        transform: rotate(30deg);
+      }
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 3px;
+        width: 4px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        transform: rotate(-15deg);
+      }
+    }
+    
+    /* Lamp shade */
+    & > div:nth-child(4) {
+      position: fixed;
+      top: 160px;
+      left: 50%;
+      width: 120px;
+      height: 60px;
+      background-color: black;
+      border-radius: 60px 60px 0 0;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+    
+    /* Light beams container with nested beams */
+    & > div:nth-child(5) {
+      position: fixed;
+      top: 225px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      width: 480px;
+      height: 400px;
+      
+      /* Center beam */
+      & > div:nth-child(1) {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(48% 0, 52% 0, 65% 100%, 35% 100%);
+        opacity: 0.9;
+      }
+      
+      /* Inner left beam */
+      & > div:nth-child(2) {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(42% 0, 48% 0, 35% 100%, 20% 100%);
+        opacity: 0.7;
+      }
+      
+      /* Inner right beam */
+      & > div:nth-child(3) {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(52% 0, 58% 0, 80% 100%, 65% 100%);
+        opacity: 0.7;
+      }
+      
+      /* Outer left beam */
+      & > div:nth-child(4) {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(38% 0, 42% 0, 20% 100%, 5% 100%);
+        opacity: 0.5;
+      }
+      
+      /* Outer right beam */
+      & > div:nth-child(5) {
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(58% 0, 62% 0, 95% 100%, 80% 100%);
+        opacity: 0.5;
+      }
+    }
+  }
+
+  /* Light Color Change Styles with nesting and custom properties */
+  #yellow-light:checked ~ figure {
+    & > div:nth-child(3),
+    & > div:nth-child(5) > div {
+      background: linear-gradient(to bottom, var(--color-yellow) 0%, transparent 100%);
+      box-shadow: var(--glow-yellow);
+    }
+    
+    & > div:nth-child(3)::before, 
+    & > div:nth-child(3)::after {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+  }
+
+  #blue-light:checked ~ figure {
+    & > div:nth-child(3),
+    & > div:nth-child(5) > div {
+      background: linear-gradient(to bottom, var(--color-blue) 0%, transparent 100%);
+      box-shadow: var(--glow-blue);
+    }
+    
+    & > div:nth-child(3)::before, 
+    & > div:nth-child(3)::after {
+      background-color: rgba(255, 255, 255, 0.95);
     }
   }
   
-  /* Preview section with improved styling */
-  .preview {
-    padding: 20px;
-    border: 1px dashed #ccc;
-    border-radius: 4px;
-    max-width: 100%;
-  }
-
-  .preview h3 {
-    margin-bottom: 0.8em;
-  }
-
-  .preview h4 {
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    color: #4a6fa5;
-  }
-
-  .preview h5 {
-    margin-top: 1.2em;
-    margin-bottom: 0.5em;
-    font-size: 1.1em;
-  }
-
-  .preview .intro {
-    font-size: 1.05em;
-  }
-
-  .preview blockquote {
-    border-left: 3px solid #4a6fa5;
-    padding-left: 1em;
-    margin: 1.5em 0;
-    font-style: italic;
-    background-color: rgba(74, 111, 165, 0.05);
-    padding: 1em 1em 1em 2em;
-    border-radius: 4px;
-  }
-
-  .preview cite {
-    display: block;
-    margin-top: 0.5em;
-    font-size: 0.9em;
-    text-align: right;
-  }
-
-  .preview a {
-    color: #4a6fa5;
-    text-decoration: underline;
-  }
-
-  .preview a:hover {
-    text-decoration: none;
-  }
-
-  .preview ul {
-    margin: 1em 0 1.5em;
-    padding-left: 2em;
-  }
-
-  .preview li {
-    margin-bottom: 0.5em;
-  }
-
-  .preview pre {
-    background-color: #f5f5f5;
-    padding: 1em;
-    border-radius: 4px;
-    overflow-x: auto;
-    margin: 1em 0;
-    border: 1px solid #eee;
-  }
-
-  .preview code {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-  }
-}
-
-/* Utilities layer - Typography controls using :has() selector */
-@layer utilities {
-  /* Font family controls */
-  main {
-    &:has(#serif:checked) .preview {
-      font-family: Georgia, Times, serif;
+  /* Light Off Style */
+  #off-light:checked ~ figure {
+    & > div:nth-child(3) {
+      background: radial-gradient(circle at center, rgba(220, 220, 220, 0.8) 0%, rgba(180, 180, 180, 0.6) 100%);
+      box-shadow: none;
+      border: 1px solid rgba(200, 200, 200, 0.5);
+      
+      &::before, &::after {
+        opacity: 0.3;
+      }
     }
-
-    &:has(#sans-serif:checked) .preview {
-      font-family: Arial, Helvetica, sans-serif;
+    
+    & > div:nth-child(5) > div {
+      opacity: 0;
     }
-
-    &:has(#monospace:checked) .preview {
-      font-family: 'Courier New', Courier, monospace;
-    }
-
-    &:has(#cursive:checked) .preview {
-      font-family: 'Comic Sans MS', cursive;
-    }
-
-    &:has(#fantasy:checked) .preview {
-      font-family: Impact, fantasy;
-    }
-
-    /* Font size controls */
-    &:has(#small:checked) .preview {
-      font-size: 0.85rem;
-    }
-
-    &:has(#medium:checked) .preview {
-      font-size: 1rem;
-    }
-
-    &:has(#large:checked) .preview {
-      font-size: 1.2rem;
+  }
+  
+  /* Container query for advanced responsive behavior */
+  @container (max-width: 600px) {
+    figure {
+      transform: scale(calc(var(--lamp-scale) * 0.8));
     }
   }
 }
+
+/* Animations layer for movement and transitions */
+@layer animations {
+  
+  /* Gentle sway animation */
+  @keyframes sway {
+    0%, 100% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(1deg); }
+    75% { transform: translateX(-50%) rotate(-1deg); }
+  }
+
+  
+  figure:hover > div:nth-child(4) {
+    animation: sway 3s ease-in-out;
+  }
+  
+}
+
