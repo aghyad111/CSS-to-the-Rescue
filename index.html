@@ -3,105 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typography Control Panel</title>
+    <title>Ambient Light</title>
     <link rel="stylesheet" href="styles/style.css">
+    <!-- Simple, clean font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Color control radio buttons -->
+    <input type="radio" name="lamp-color" id="off-light" aria-label="Turn light off">
+    <input type="radio" name="lamp-color" id="white-light" checked aria-label="White light">
+    <input type="radio" name="lamp-color" id="yellow-light" aria-label="Yellow light">
+    <input type="radio" name="lamp-color" id="blue-light" aria-label="Blue light">
+
     <header>
-        <h1>Typography Control Panel</h1>
-        <p>Customize text appearance with pure CSS</p>
+        <h1>Ambient Light</h1>
     </header>
-    
-    <main>
-        <!-- Controls Section -->
-        <section>
-            <h2>Typography Controls</h2>
-            
-            <!-- Font Family Controls -->
-            <fieldset>
-                <legend>Font Family</legend>
-                
-                <input type="radio" name="font-family" id="serif" checked>
-                <label for="serif">Serif</label>
-                
-                <input type="radio" name="font-family" id="sans-serif">
-                <label for="sans-serif">Sans-serif</label>
 
-                <input type="radio" name="font-family" id="monospace">
-                <label for="monospace">Monospace</label>
-                
-                <input type="radio" name="font-family" id="cursive">
-                <label for="cursive">Cursive</label>
-                
-                <input type="radio" name="font-family" id="fantasy">
-                <label for="fantasy">Fantasy</label>
-            </fieldset>
-            
-            <!-- Font Size Controls -->
-            <fieldset>
-                <legend>Font Size</legend>
-                
-                <input type="radio" name="font-size" id="small">
-                <label for="small">Small</label>
-                
-                <input type="radio" name="font-size" id="medium" checked>
-                <label for="medium">Medium</label>
-                
-                <input type="radio" name="font-size" id="large">
-                <label for="large">Large</label>
-            </fieldset>
-        </section>
-        
-        <!-- Preview Section -->
-        <section>
-            <h2>Preview</h2>
-            
-            <article class="preview">
-                <h3>Typography Sample</h3>
-                
-                <p class="intro"><strong>Welkom bij het typografie voorbeeld.</strong> Hier kun je zien hoe verschillende tekstelementen worden weergegeven met de door jou gekozen instellingen. Typografie is essentieel voor leesbaarheid en gebruikerservaring.</p>
-                
-                <h4>Over typografie</h4>
-                <p>Typografie is de kunst en techniek van het arrangeren van tekst om deze leesbaar, duidelijk en visueel aantrekkelijk te maken. Het omvat het kiezen van lettertypen, puntgrootten, regelafstand, letterspatiëring en meer.</p>
-                
-                <blockquote>
-                    <p>"Typografie is wat taal zichtbaar maakt. Het is de belichaming van taal."</p>
-                    <cite>— Ellen Lupton, grafisch ontwerper</cite>
-                </blockquote>
-                
-                <h4>Verschillende tekstelementen</h4>
-                
-                <p>In deze sectie zie je verschillende elementen zoals <em>benadrukte tekst</em>, <strong>vetgedrukte tekst</strong>, en <a href="#">hyperlinks</a>. Let op hoe deze elementen verschillen in je gekozen lettertype en -grootte.</p>
-                
-                <ul>
-                    <li>Serif-lettertypen hebben kleine streepjes aan de uiteinden van letters</li>
-                    <li>Sans-serif-lettertypen hebben <em>geen</em> streepjes aan de uiteinden</li>
-                    <li>Monospace-lettertypen hebben dezelfde breedte voor <strong>alle</strong> tekens</li>
-                </ul>
-                
-                <h5>Technische voorbeeld</h5>
-                <pre><code>/* CSS-voorbeeld van typografische regels */
-        body {
-        font-family: sans-serif;
-        font-size: 16px;
-        line-height: 1.5;
-        }
+    <hr aria-hidden="true">
 
-        h1, h2, h3 {
-        font-family: serif;
-        }</code></pre>
-                
-                <p>De bovenstaande code toont hoe verschillende fontfamilies kunnen worden toegepast op verschillende elementen in een webpagina.</p>
-                
-                <h5>Lange tekstparagraaf</h5>
-                <p>Dit is een voorbeeld van een langere tekstparagraaf om te laten zien hoe verschillende lettertypen werken bij het lezen van grotere stukken tekst. Bij het kiezen van een lettertype voor hoofdtekst is leesbaarheid van cruciaal belang. Het lettertype moet comfortabel zijn om gedurende langere tijd te lezen, vooral op digitale schermen waar vermoeidheid van de ogen een probleem kan zijn. Daarnaast spelen factoren zoals regelafstand en tekstbreedte een belangrijke rol bij het creëren van een prettige leeservaring.</p>
-            </article>
-        </section>
-    </main>
-    
-    
-    <footer>
-        <p>Typography Control Panel</p>
-    </footer>
+    <div class="controls" role="toolbar" aria-label="Light color controls">
+        <label for="off-light">Off</label>
+        <label for="white-light">White</label>
+        <label for="yellow-light">Yellow</label>
+        <label for="blue-light">Blue</label>
+    </div>
+
+    <!-- Lamp structure without classes -->
+    <figure aria-label="Interactive lamp with changeable light colors">
+        <div></div> <!-- cable -->
+        <div></div> <!-- connector -->
+        <div></div> <!-- light-bulb -->
+        <div></div> <!-- lamp-shade -->
+        <div> <!-- light beams container -->
+            <div></div> <!-- center-beam -->
+            <div></div> <!-- inner-beam-left -->
+            <div></div> <!-- inner-beam-right -->
+            <div></div> <!-- outer-beam-left -->
+            <div></div> <!-- outer-beam-right -->
+        </div>
+    </figure>
+
 </body>
 </html>
