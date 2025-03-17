@@ -1,98 +1,87 @@
 # CSS-to-the-Rescue
-# Typografie Bedieningspaneel
+# Ambient Light Bedieningspaneel
 
-## Projectoverzicht
-Dit project heeft als doel een modulair typografie-bedieningspaneel te maken met alleen HTML en CSS. Het bedieningspaneel stelt gebruikers in staat verschillende typografische eigenschappen van tekst aan te passen, waarbij de kracht van CSS-selectors wordt gedemonstreerd zonder afhankelijk te zijn van JavaScript.
+## Project Overzicht
+Dit project laat zien hoe je een interactief bedieningspaneel kunt maken met alleen HTML en CSS. Na eerst een typografie-panel te hebben ontwikkeld, ben ik na het derde voortgangsgesprek teruggegaan naar mijn oorspronkelijke idee: een lamp met lichteffecten. Het resultaat toont de kracht van CSS-selectors zonder JavaScript.
 
-## Ontwikkelingsproces
+## Wat we hebben gedaan
 
-### Week 1
-In de eerste week ben ik ziek geweest, waardoor ik beperkte tijd had om aan het project te werken. Toch heb ik het volgende bereikt:
-- Gelezen en begrepen van de opdracht
-- Keuze gemaakt voor het type bedieningspaneel (eerste was een lichtbedieningspaneel, later veranderd naar typografie)
-- Conceptueel idee ontwikkeld voor een typografie-bedieningspaneel dat nuttig kan zijn voor:
-  - Gebruikers die e-books of nieuwswebsites lezen en typografie willen aanpassen
-  - Ontwikkelaars die snel verschillende typografische opties willen testen
-  - Mensen die specifieke tekstaanpassingen nodig hebben voor betere leesbaarheid
+### Week 1-3: Typografie Panel (Verkeerde Richting)
+In de eerste weken werkte ik aan een typografie-bedieningspaneel, maar na het derde voortgangsgesprek realiseerde ik me dat ik de opdracht verkeerd had begrepen. Dit panel voldeed niet volledig aan de opdrachtcriteria. Daarom besloot ik terug te gaan naar mijn oorspronkelijke idee: een lampbedieningspaneel.
 
-### Week 2
-In de tweede week heb ik de basisimplementatie van het typografie-bedieningspaneel voltooid:
-- Basisprojectstructuur opgezet
-- Twee kolom lay-out geïmplementeerd met bedieningselementen en voorbeeldsectie
-- Volledige lettertypefamilie-opties geïmplementeerd (Serif, Sans-serif, Monospace, Cursive, Fantasy)
-- Lettergrootte-instellingen toegevoegd (Klein, Gemiddeld, Groot)
-- De :has() CSS-selector geïmplementeerd voor real-time typografische aanpassingen
-- Toegankelijke formulierelementen met visuele feedback voor geselecteerde opties
-- Grondslag voor responsief ontwerp gecreëerd
+### Week 4: Ambient Light Panel (Juiste Aanpak)
+In de vierde week heb ik een volledig nieuw project gemaakt dat voldoet aan alle criteria van de opdracht:
 
-### Week 3
-In de derde week heb ik mijn CSS gemoderniseerd en de preview-sectie verbeterd:
-- Implementatie van moderne CSS-architectuurtechnieken:
-  - CSS Nesting toegepast voor beter gestructureerde en onderhoudbare code
-  - @layer-systeem geïmplementeerd voor logische organisatie van CSS in verschillende lagen:
-    - reset: Voor CSS-resets
-    - base: Voor basistypografie en stijlen
-    - layout: Voor structuur en responsief ontwerp
-    - components: Voor UI-componenten zoals het bedieningspaneel
-    - utilities: Voor functionaliteit zoals de typografiecontroles
-- De preview-sectie uitgebreid met meer voorbeeldtekst en elementen:
-  - Rijkere tekstinhoud met verschillende niveaus van koppen
-  - Blockquotes met citaten en bronvermeldingen
-  - Lijsten en opsommingen
-  - Codevoorbeelden in pre-tags
-  - Verschillende tekstelementen zoals benadrukte tekst, vetgedrukte tekst en links
-  - Lange tekstparagraaf voor betere typografie-evaluatie
-- Verbeterde CSS-stijlen voor de preview-sectie:
-  - Specifieke opmaak voor verschillende elementen
-  - Verbeterde marges en ruimtes
-  - Stijlvolle blockquote-presentatie
-  - Responsieve codeblokken met goede leesbaarheid
+1. **Selector-first CSS en Geen JS**
+   - Alle functionaliteit werkt zonder JavaScript
+   - Minimaal gebruik van classes (slechts één class: 'controls')
+   - Gebruik van geavanceerde CSS-selectors zoals sibiling combinators (~)
+   - Radio buttons voor het schakelen tussen lichtkleuren
 
-## Huidige voortgang
-- Basisprojectstructuur opgezet
-- Twee kolom lay-out geïmplementeerd met bedieningselementen en voorbeeldsectie
-- Volledige lettertypefamilie-opties geïmplementeerd (Serif, Sans-serif, Monospace, Cursive, Fantasy)
-- Lettergrootte-instellingen toegevoegd (Klein, Gemiddeld, Groot)
-- De :has() CSS-selector geïmplementeerd voor real-time typografische aanpassingen
-- Toegankelijke formulierelementen met visuele feedback voor geselecteerde opties
-- Grondslag voor responsief ontwerp gecreëerd
-- Moderne CSS-architectuur toegepast met CSS Nesting en @layer
-- Uitgebreide preview-sectie met diverse tekstelementen voor betere typografie-evaluatie
-- Verbeterde styling voor alle preview-elementen
+2. **Nieuwe CSS Architectuur Features**
+   - CSS Nesting toegepast voor overzichtelijke code
+   - @layer gebruikt voor organisatie (base, typography, room, controls, lamp, animations, effects)
+   - Container queries voor geavanceerde responsive elementen
 
-## Implementatieaanpak
-Het project volgt een "selector-first" CSS-aanpak, waarbij het gebruik van klassen wordt vermeden en het gebruik van IDs geminimaliseerd. De huidige implementatie maakt gebruik van:
-- Semantische HTML-structuur
-- CSS Grid voor de lay-out
-- Media queries voor responsief ontwerp
-- Geavanceerde CSS-selectors zoals :has() voor dynamische stijlen
-- Toegankelijke formulierelementen voor bedieningselementen
-- Visuele feedback voor gebruikersinteracties
+3. **Passende Typografie**
+   - Stijlvolle titel "Ambient Light" met zorgvuldig gekozen lettertype
+   - Consistente typografie in het bedieningspaneel
+   - Gebruik van Google Fonts (Raleway) voor een moderne uitstraling
+
+4. **Basis Design Principes**
+   - Responsive ontwerp met media queries
+   - Gebruik van CSS custom properties (variabelen)
+   - Semantische HTML-structuur (figure, header, etc.)
+   - Toegankelijke bedieningselementen met ARIA-attributen
+
+5. **Details en Afwerking**
+   - Realistische lichteffecten en reflecties
+   - Subtiele animaties bij interactie
+   - Zorgvuldig ontworpen lichtbundels en schaduwen
+   - Realistische uit-toestand voor de lamp
+
+De lamp heeft de volgende features:
+- Verschillende lichtkleuren (wit, geel, blauw)
+- Aan/uit functionaliteit
+- Realistische lichtbundels en reflecties
+- Interactieve elementen die reageren op gebruikersacties
+- Subtiele animaties zoals een zwaaiende lamp bij hover
+
+## Technische Implementatie
+
+### HTML Structuur
+- Minimalistisch en semantisch
+- Gebruik van radio buttons voor kleurkeuze
+- Slechts één class voor het bedieningspaneel
+- Lamp opgebouwd uit divs met child-selectors
+
+### CSS Technieken
+- Selector-first benadering zonder overmatig gebruik van classes
 - CSS Nesting voor beter gestructureerde code
-- @layer voor logische organisatie van CSS
+- @layer voor duidelijke organisatie van stijlen
+- Custom properties voor consistente kleuren en waarden
+- Pseudo-elementen (::before, ::after) voor visuele details
+- Media queries en container queries voor responsiviteit
+- CSS-animaties en transities voor interactiviteit
 
-## Gebruikte technologieën
-- HTML5
-- CSS3
-- Moderne CSS-selectors (:has, +, etc.)
-- Moderne CSS-architectuurtechnieken (CSS Nesting, @layer)
+## Geleerde Lessen
+Het belangrijkste wat ik heb geleerd is het belang van goed de opdracht begrijpen. Na het derde voortgangsgesprek werd duidelijk dat mijn typografie-panel niet de juiste richting was. Door terug te gaan naar mijn oorspronkelijke idee kon ik alsnog een project opleveren dat volledig voldoet aan alle criteria.
 
-## Volgende stappen
-- Meer typografiebedieningselementen toevoegen zoals:
-  - Tekststijl (normaal, cursief)
-  - Tekstgewicht (licht, normaal, vet)
-  - Tekstdecoratie (onderstrepen, doorhalen)
-  - Teksttransformatie (hoofdletters, kleine letters)
-  - Letterspatiëring en woordspatiëring
-  - Lijnhoogte
-  - Tekstuitlijning
-  - Tekstkleur en achtergrondkleur
-- Meer visuele feedback voor gebruikersinteracties toevoegen
-- Implementeren van andere moderne CSS-technieken zoals Container Queries
+Ook heb ik geleerd hoe krachtig moderne CSS-technieken zijn. Door CSS Nesting, @layer, en geavanceerde selectors te gebruiken, kon ik complexe functionaliteit implementeren zonder JavaScript.
 
-## Projectvereisten
-- Geen JavaScript (behalve voor het toegestane script voor het bereikinvoer indien nodig)
-- Minimale gebruik van klassen en IDs
+## Volgende Stappen
+Voor verdere verbetering van het project zou ik kunnen werken aan:
+- Meer kleuren en lichtsterktes
+- Kleurovergangen en -menging
+- Verschillende lampmodellen
+- Meer interactieve elementen
+- Verbeterde animaties en effecten
+
+## Projecteisen
+Het project voldoet aan alle eisen:
+- Geen JavaScript (alleen CSS en HTML)
+- Minimaal gebruik van classes (één class)
 - Gebruik van geavanceerde CSS-selectors
-- Implementatie van moderne CSS-architectuureigenschappen
-- Responsief en toegankelijk ontwerp
+- Implementatie van moderne CSS-architectuurtechnieken
+- Responsive en toegankelijk ontwerp
+- Aandacht voor detail en afwerking
